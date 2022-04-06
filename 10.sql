@@ -1,11 +1,22 @@
 --10 
---.λϊαι τψεφγεψδ δξωξωϊ μΰιϊεψ δμαπεϊ δεο.
---δτψεφγεψδ ϊαφς ηιτεω αΰετπιν δαΰιν:
---a .ϊζδδ μχεηεϊ ΰωψ μδν ιεϊψ ξηωαεο ΰηγ, εΰωψ αεφςε αδν αΰεϊε ιεν ςρχιν
---τςεμεϊ αρλεξιν ωμ ξςμ 50000 ¤ ωδϊψηωε μτηεϊ τςν ΰηϊ αηεγω αξωκ
---ωμεωδ ηεγωιν ψφετιν. δωϊξωι α cursor.
---b .ϊζδδ ηωαεπεϊ ΰωψ αδν τςεμεϊ ωμ ζιλει αρλεξιν ωμ ξςμ 50000 αιεν ςρχιν,
---εαΰεϊε ωαες τςεμεϊ ηιεα αρλεξιν ωμ ξςμ 50000.¤
+--.Χ›ΧªΧ‘Χ™ Χ¤Χ¨Χ•Χ¦Χ“Χ•Χ¨Χ” Χ”ΧΧ©ΧΧ©Χª ΧΧΧ™ΧªΧ•Χ¨ Χ”ΧΧ‘Χ Χ•Χª Χ”Χ•Χ.
+--Χ”Χ¤Χ¨Χ•Χ¦Χ“Χ•Χ¨Χ” ΧªΧ‘Χ¦ΧΆ Χ—Χ™Χ¤Χ•Χ© Χ‘ΧΧ•Χ¤Χ Χ™Χ Χ”Χ‘ΧΧ™Χ:
+--a .ΧªΧ–Χ”Χ” ΧΧ§Χ•Χ—Χ•Χª ΧΧ©Χ¨ ΧΧ”Χ Χ™Χ•ΧªΧ¨ ΧΧ—Χ©Χ‘Χ•Χ ΧΧ—Χ“, Χ•ΧΧ©Χ¨ Χ‘Χ•Χ¦ΧΆΧ• Χ‘Χ”Χ Χ‘ΧΧ•ΧªΧ• Χ™Χ•Χ ΧΆΧ΅Χ§Χ™Χ
+--Χ¤ΧΆΧ•ΧΧ•Χª Χ‘Χ΅Χ›Χ•ΧΧ™Χ Χ©Χ ΧΧΆΧ 50000 β‚ª Χ©Χ”ΧªΧ¨Χ—Χ©Χ• ΧΧ¤Χ—Χ•Χª Χ¤ΧΆΧ ΧΧ—Χª Χ‘Χ—Χ•Χ“Χ© Χ‘ΧΧ©Χ
+--Χ©ΧΧ•Χ©Χ” Χ—Χ•Χ“Χ©Χ™Χ Χ¨Χ¦Χ•Χ¤Χ™Χ. Χ”Χ©ΧªΧΧ©Χ™ Χ‘ cursor.
+--b .ΧªΧ–Χ”Χ” Χ—Χ©Χ‘Χ•Χ Χ•Χª ΧΧ©Χ¨ Χ‘Χ”Χ Χ¤ΧΆΧ•ΧΧ•Χª Χ©Χ Χ–Χ™Χ›Χ•Χ™ Χ‘Χ΅Χ›Χ•ΧΧ™Χ Χ©Χ ΧΧΆΧ 50000 Χ‘Χ™Χ•Χ ΧΆΧ΅Χ§Χ™Χ,
+--Χ•Χ‘ΧΧ•ΧªΧ• Χ©Χ‘Χ•ΧΆ Χ¤ΧΆΧ•ΧΧ•Χª Χ—Χ™Χ•Χ‘ Χ‘Χ΅Χ›Χ•ΧΧ™Χ Χ©Χ ΧΧΆΧ 50000.β‚ª
+
+--procedure to discover money laundering
+--the procedure find:
+--1
+--Customers who have ore than one account,
+--and movements had been made in thier account in the same business day 
+--in the amount of at least 50000, at least once a month, for three consecutive  months.
+--2
+--Accounts with positive movemoents of amount of over 50000 per business day
+--and negative amount of  less than -50000 per business day. 
+
 
 ALTER	PROCEDURE money_laundering
 AS
@@ -13,9 +24,9 @@ BEGIN
 	DECLARE @account_id NVARCHAR(1000)='',@tz NVARCHAR(1000)=''
 	--a
 	PRINT
-'ϊζ	 μχεηεϊ ΰωψ μδν ιεϊψ ξηωαεο ΰηγ, εΰωψ αεφςε αδν αΰεϊε ιεν ςρχιν
-τςεμεϊ αρλεξιν ωμ ξςμ 50000 ¤ ωδϊψηωε μτηεϊ τςν ΰηϊ αηεγω αξωκ
-ωμεωδ ηεγωιν ψφετιν.'
+--'ΧªΧ–	 ΧΧ§Χ•Χ—Χ•Χª ΧΧ©Χ¨ ΧΧ”Χ Χ™Χ•ΧªΧ¨ ΧΧ—Χ©Χ‘Χ•Χ ΧΧ—Χ“, Χ•ΧΧ©Χ¨ Χ‘Χ•Χ¦ΧΆΧ• Χ‘Χ”Χ Χ‘ΧΧ•ΧªΧ• Χ™Χ•Χ ΧΆΧ΅Χ§Χ™Χ
+--Χ¤ΧΆΧ•ΧΧ•Χª Χ‘Χ΅Χ›Χ•ΧΧ™Χ Χ©Χ ΧΧΆΧ 50000 β‚ª Χ©Χ”ΧªΧ¨Χ—Χ©Χ• ΧΧ¤Χ—Χ•Χª Χ¤ΧΆΧ ΧΧ—Χª Χ‘Χ—Χ•Χ“Χ© Χ‘ΧΧ©Χ
+--Χ©ΧΧ•Χ©Χ” Χ—Χ•Χ“Χ©Χ™Χ Χ¨Χ¦Χ•Χ¤Χ™Χ.'
 	
 	SELECT DISTINCT @tz+=	CONVERT(NVARCHAR(9),[tz])+', '
 	FROM(SELECT *
@@ -32,22 +43,22 @@ BEGIN
 						) next_date
 				FROM[dbo].[account]a1 JOIN [dbo].[movements] m
 				ON a1.account_id=m.account_id
-				WHERE CAST([date]AS DATE)IN(SELECT  CAST([date]AS DATE)--ϊπΰι ςμ δϊζ εδρλεν
+				WHERE CAST([date]AS DATE)IN(SELECT  CAST([date]AS DATE)--ΧªΧ ΧΧ™ ΧΆΧ Χ”ΧªΧ– Χ•Χ”Χ΅Χ›Χ•Χ
 								FROM [dbo].[account]a2 JOIN [dbo].[movements] m
 								ON a2.account_id=m.account_id
 								WHERE a2.[tz]=a1.[tz] 
 								GROUP BY [tz], CAST([date]AS DATE)
 								HAVING SUM(ABS([sum]))>50000 AND  COUNT([tz])>1 )	
-		)AS A--ωεμσ ΰϊ λμ δϊπεςεϊ  ωμ δμχεη αΰεϊε ιεν
-		WHERE next_date=-1)AS B--ωεμσ ΰϊ δϊπεςδ δΰηψεπδ ξδιεν δΰηψεο αηεγω ωξχιιν ΰϊ δϊπΰι
-		WHERE DATEDIFF(MONTH,pre_date,[date])=1 AND DATEDIFF(MONTH,[date],next_date)=1)AS C--ωεμσ ψχ ΰν ιω ωμεω ηεγωιν ψφετιν
-		--ωεμσ ψχ ΰϊ δϊζ
+		)AS A--Χ©Χ•ΧΧ£ ΧΧª Χ›Χ Χ”ΧªΧ Χ•ΧΆΧ•Χª  Χ©Χ Χ”ΧΧ§Χ•Χ— Χ‘ΧΧ•ΧªΧ• Χ™Χ•Χ
+		WHERE next_date=-1)AS B--Χ©Χ•ΧΧ£ ΧΧª Χ”ΧªΧ Χ•ΧΆΧ” Χ”ΧΧ—Χ¨Χ•Χ Χ” ΧΧ”Χ™Χ•Χ Χ”ΧΧ—Χ¨Χ•Χ Χ‘Χ—Χ•Χ“Χ© Χ©ΧΧ§Χ™Χ™Χ ΧΧª Χ”ΧªΧ ΧΧ™
+		WHERE DATEDIFF(MONTH,pre_date,[date])=1 AND DATEDIFF(MONTH,[date],next_date)=1)AS C---Χ©Χ•ΧΧ£ Χ¨Χ§ ΧΧ Χ™Χ© Χ©ΧΧ•Χ© Χ—Χ•Χ“Χ©Χ™Χ Χ¨Χ¦Χ•Χ¤Χ™Χ
+		--Χ©Χ•ΧΧ£ Χ¨Χ§ ΧΧª Χ”ΧªΧ–
 		PRINT @tz
 
 	--b
 	PRINT
-	'ηωαεπεϊ ΰωψ αδν τςεμεϊ ωμ ζιλει αρλεξιν ωμ ξςμ 50000 αιεν ςρχιν,
-εαΰεϊε ωαες τςεμεϊ ηιεα αρλεξιν ωμ ξςμ 50000.¤'
+--	'Χ—Χ©Χ‘Χ•Χ Χ•Χª ΧΧ©Χ¨ Χ‘Χ”Χ Χ¤ΧΆΧ•ΧΧ•Χª Χ©Χ Χ–Χ™Χ›Χ•Χ™ Χ‘Χ΅Χ›Χ•ΧΧ™Χ Χ©Χ ΧΧΆΧ 50000 Χ‘Χ™Χ•Χ ΧΆΧ΅Χ§Χ™Χ,
+--Χ•Χ‘ΧΧ•ΧªΧ• Χ©Χ‘Χ•ΧΆ Χ¤ΧΆΧ•ΧΧ•Χª Χ—Χ™Χ•Χ‘ Χ‘Χ΅Χ›Χ•ΧΧ™Χ Χ©Χ ΧΧΆΧ 50000.
 	SELECT DISTINCT @account_id+=CONVERT(NVARCHAR(10),[account_id])+', '
 	FROM  [dbo].[movements]
 	WHERE DATEPART(WK,[date])IN(SELECT DATEPART(WK,[date])
